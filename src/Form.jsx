@@ -11,8 +11,6 @@ const Form = () => {
         favColor: '',
     });
 
-    console.log(formData);
-
     const handleForm = (event) => {
         const { name, value, type, checked } = event.target;
         setFormData((prevFormData) => ({
@@ -21,9 +19,14 @@ const Form = () => {
         }));
     };
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(formData);
+    };
+
     return (
         <main className="form">
-            <form>
+            <form onSubmit={handleSubmit}>
                 {/* Text Input */}
                 <input
                     type="text"
@@ -120,6 +123,12 @@ const Form = () => {
                     <option value="indigo">Indigo</option>
                     <option value="violet">Violet</option>
                 </select>
+                {/* Submit */}
+                <br />
+                <br />
+                {/* <input type="submit" value="Sink it in" /> */}
+                {/* button inside a form acts same as <input type="submit" /> */}
+                <button>Sink it in</button>
             </form>
         </main>
     );
